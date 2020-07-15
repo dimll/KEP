@@ -1,0 +1,1 @@
+nodebb stop && nodebb build && nodebb start 
