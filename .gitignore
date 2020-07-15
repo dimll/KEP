@@ -41,7 +41,7 @@ pidfile
 /public/templates
 
 /public/sounds
-/public/uploads
+#/public/uploads
 /test/uploads
 
 # compiled files
