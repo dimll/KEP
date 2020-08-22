@@ -76,6 +76,17 @@ function categoryRoutes(app, middleware, controllers) {
 	setupPageRoute(app, '/category/:category_id/:slug?', middleware, [], controllers.category.get);
 }
 
+//------------TESTING-START---------------//
+function dumRoutes(app,middleware, controllers){
+	setupPageRoute(app,'/safety/information/:topicName', middleware, [], controllers.topics.get);
+	setupPageRoute(app,'/test/:topic_id', middleware, [], controllers.topics.get);
+
+	setupPageRoute(app,'/test2', middleware, [], function (req,res,callback) {
+		res.send("Test2 dummy");
+	});
+}
+//------------TESTING-END---------------//
+
 function userRoutes(app, middleware, controllers) {
 	var middlewares = [middleware.canViewUsers];
 
@@ -139,6 +150,8 @@ function addCoreRoutes(app, router, middleware, callback) {
 	accountRoutes(router, middleware, controllers);
 	userRoutes(router, middleware, controllers);
 	groupRoutes(router, middleware, controllers);
+
+	dumRoutes(router, middleware, controllers);
 
 	var relativePath = nconf.get('relative_path');
 	app.use(relativePath || '/', router);

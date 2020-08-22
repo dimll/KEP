@@ -36,6 +36,11 @@ module.exports = function (Topics) {
 		], callback);
 	};
 
+	//Find tid by Title
+	Topics.getTopicByTitle = function(titleName){
+		return db.getObjectIDByTitle(titleName);
+	};
+
 	Topics.getTopicField = function (tid, field, callback) {
 		Topics.getTopicFields(tid, [field], function (err, topic) {
 			callback(err, topic ? topic[field] : null);

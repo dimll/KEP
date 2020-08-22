@@ -158,6 +158,11 @@ module.exports = function (db, module) {
 		});
 	};
 
+	module.getObjectIDByTitle = function (titleName) {
+		console.log("In DB hash.js get by title");
+		return db.collection('objects').findOne({ title: titleName });
+	};
+
 	module.isObjectFields = function (key, fields, callback) {
 		if (!key) {
 			return callback();
